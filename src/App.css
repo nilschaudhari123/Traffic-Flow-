@@ -1,0 +1,407 @@
+:root {
+  --bg: #0b1f3a;
+  --bg-card: #12325c;
+  --accent: #ffc72c;
+  --accent-2: #4fc3f7;
+  --text: #f5f8ff;
+  --muted: #a8bdd9;
+  --danger: #ff6b6b;
+  --road: #2f3f55;
+  --grass: #1f6b4a;
+  --max-width: 420px;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: radial-gradient(circle at 50% 0%, #1a4a8a, var(--bg));
+  color: var(--text);
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+}
+
+.app-shell {
+  width: 100%;
+  max-width: var(--max-width);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+}
+
+.app-header {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr 2.5rem;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.header-titles h1 {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.header-titles p {
+  margin: 0.15rem 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.header-spacer {
+  width: 2.5rem;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.app-footer {
+  margin-top: auto;
+}
+
+.icon-btn,
+.primary-btn,
+.secondary-btn,
+.ghost-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.icon-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 10px;
+}
+
+.primary-btn {
+  background: linear-gradient(180deg, #ffd95a, var(--accent));
+  color: #1a2744;
+}
+
+.secondary-btn {
+  background: rgba(79, 195, 247, 0.2);
+  color: var(--text);
+  border: 1px solid rgba(79, 195, 247, 0.45);
+}
+
+.secondary-btn.small {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.ghost-btn {
+  background: transparent;
+  color: var(--muted);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.menu-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.hero-card,
+.info-card,
+.result-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.tagline {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+}
+
+.currency-row {
+  display: flex;
+  gap: 1rem;
+  font-weight: 700;
+}
+
+.bottom-nav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.25rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  padding: 0.35rem;
+}
+
+.bottom-nav button {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 0.65rem;
+  padding: 0.45rem 0.2rem;
+  border-radius: 10px;
+}
+
+.bottom-nav button.active {
+  background: rgba(255, 199, 44, 0.2);
+  color: var(--accent);
+}
+
+.world-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.world-card {
+  text-align: left;
+  border: none;
+  border-radius: 14px;
+  padding: 0.85rem;
+  background: linear-gradient(90deg, #1c3f6e, #16345d);
+  color: var(--text);
+}
+
+.world-card:disabled {
+  opacity: 0.45;
+}
+
+.world-num {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.world-name {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.45rem;
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.level-btn {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  gap: 0.1rem;
+}
+
+.level-btn.locked {
+  opacity: 0.35;
+}
+
+.level-meta {
+  font-size: 0.55rem;
+  color: var(--muted);
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.35rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.hud-label {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+
+.status-line {
+  margin: 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--accent-2);
+}
+
+.status-line.deadlock {
+  color: var(--danger);
+}
+
+.game-board {
+  display: grid;
+  gap: 2px;
+  background: #0a1628;
+  border-radius: 14px;
+  padding: 4px;
+  touch-action: manipulation;
+}
+
+.tile {
+  position: relative;
+  min-height: 28px;
+  border: none;
+  border-radius: 4px;
+  padding: 0;
+  font-size: 0.55rem;
+}
+
+.tile-grass {
+  background: var(--grass);
+}
+
+.tile-road,
+.tile-intersection {
+  background: var(--road);
+}
+
+.tile-exit {
+  background: #2d6a4f;
+}
+
+.tile-parking {
+  background: #3d4f6f;
+}
+
+.selected-cell {
+  outline: 2px solid var(--accent);
+}
+
+.vehicle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.vehicle-icon {
+  font-size: 1rem;
+}
+
+.vehicle-selected .vehicle-icon {
+  filter: drop-shadow(0 0 4px gold);
+}
+
+.vehicle-dir {
+  font-size: 0.55rem;
+  color: var(--accent);
+}
+
+.exit-mark,
+.parking-mark {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 0.45rem;
+  opacity: 0.8;
+}
+
+.traffic-light {
+  position: absolute;
+  bottom: 0;
+  right: 1px;
+  font-size: 0.45rem;
+}
+
+.game-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.result-card.win {
+  border: 1px solid rgba(255, 199, 44, 0.4);
+}
+
+.result-card.lose {
+  border: 1px solid rgba(255, 107, 107, 0.4);
+}
+
+.stars-big {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--accent);
+}
+
+.achievement-list,
+.shop-list,
+.leaderboard {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.achievement-list li,
+.shop-list li,
+.leaderboard li {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.achievement-list li.unlocked {
+  border-left: 4px solid var(--accent);
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.badge {
+  color: var(--accent);
+  font-weight: 700;
+}
