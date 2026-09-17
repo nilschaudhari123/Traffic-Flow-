@@ -10,7 +10,7 @@ export function HomeScreen({ save, onNavigate }: Props) {
   return (
     <Layout
       title="TRAFFIC FLOW"
-      subtitle="GRIDLOCK · N. A. A. M."
+      subtitle="1000 levels · GRIDLOCK"
       footer={<NavBar active="home" onNavigate={onNavigate} />}
     >
       <div className="hero-card">

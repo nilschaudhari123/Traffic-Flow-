@@ -1,0 +1,13 @@
+{
+  "name": "TrafficFlowGridlock.Editor",
+  "rootNamespace": "TrafficFlowGridlock.EditorTools",
+  "references": [
+    "TrafficFlowGridlock.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "autoReferenced": true
+}

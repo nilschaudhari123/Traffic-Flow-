@@ -1,33 +1,33 @@
 # Traffic Flow: Gridlock
 
-Runnable web implementation of the **TRAFFIC FLOW: GRIDLOCK** P0 scope from the shared ChatGPT production plan:
+**TRAFFIC FLOW: GRIDLOCK** — traffic-flow puzzle game (1000 levels, 100 worlds).
 
-- Home → World Map → Level Select (100 levels, 10 worlds) → Gameplay → Complete/Failed
-- Daily Challenge, Endless Gridlock, Shop, Achievements, Leaderboard, Settings
-- Deterministic level seeds, move limits, parking slots, combo scoring, tow power-up
-- Progress saved in `localStorage`
-
-The original ChatGPT thread targeted a **Unity 6.3 LTS** mobile project; this repository delivers a browser-playable version with the same progression rules and screen flow so you can run and test immediately.
-
-## Quick start
+## Web app (ready to run)
 
 ```bash
 npm install
-npm run dev
+npm run dev      # development
+npm run build    # production compile
+npm run preview  # serve dist/
 ```
 
-Open the URL shown in the terminal (default `http://localhost:5173`).
+Open `http://localhost:5173` — full UI flow, gameplay, daily/endless modes, progression in `localStorage`.
 
-## Production build
+## Unity project (mobile / 3D)
 
-```bash
-npm run build
-npm run preview
-```
+Path: [`unity/TrafficFlowGridlock`](unity/TrafficFlowGridlock)
 
-## Unity project note
+1. Open in **Unity 6.3 LTS** (or Unity 6.0+).
+2. **Traffic Flow → Resolve P0 - Build Canonical Production Project**
+3. **Traffic Flow → Resolve P0 - Validate Canonical Project**
+4. Play from `Assets/TrafficFlowGridlock/Scenes/Home.unity`.
 
-To use the full Unity package described in the chat (3D presentation, platform IAP/ads, editor validators), download the zip from that conversation and open it in Unity 6.3 LTS, then run:
+See [unity/TrafficFlowGridlock/README.md](unity/TrafficFlowGridlock/README.md) for player builds.
 
-- **Traffic Flow → Resolve P0 - Build Canonical Production Project**
-- **Traffic Flow → Resolve P0 - Validate Canonical Project**
+## Level scale
+
+| | Worlds | Levels / world | Total |
+|---|--------|----------------|-------|
+| Campaign | 100 | 10 | **1000** |
+
+Level parameters (seed, moves, parking, flags) use the same formulas in web and Unity.

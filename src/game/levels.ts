@@ -1,7 +1,12 @@
 import type { LevelConfig } from './types';
-import { WORLD_THEMES, worldForLevel, worldLevelNumber } from './worlds';
+import {
+  getWorldTheme,
+  TOTAL_LEVELS,
+  worldForLevel,
+  worldLevelNumber,
+} from './worlds';
 
-export const TOTAL_LEVELS = 100;
+export { TOTAL_LEVELS };
 
 export function buildLevelConfig(levelId: number): LevelConfig {
   const id = Math.max(1, Math.min(TOTAL_LEVELS, levelId));
@@ -12,10 +17,10 @@ export function buildLevelConfig(levelId: number): LevelConfig {
     levelId: id,
     worldIndex: world,
     worldLevel: wl,
-    theme: WORLD_THEMES[world],
-    vehicleCount: clamp(6 + world * 2 + wl, 7, 28),
-    moveLimit: clamp(18 + world * 3 + wl * 2, 20, 60),
-    parkingSlots: clamp(2 + Math.floor(world / 2), 2, 6),
+    theme: getWorldTheme(world),
+    vehicleCount: clamp(6 + world * 2 + wl, 7, 36),
+    moveLimit: clamp(18 + world * 3 + wl * 2, 20, 90),
+    parkingSlots: clamp(2 + Math.floor(world / 2), 2, 8),
     seed: 7919 + id * 104729,
     dynamicRoads: world >= 1 && wl >= 4,
     trafficLights: world >= 1 && wl >= 7,
@@ -42,8 +47,8 @@ export function buildEndlessConfig(wave: number): LevelConfig {
   return {
     ...base,
     levelId: -wave,
-    vehicleCount: clamp(base.vehicleCount + Math.floor(wave / 3), 7, 32),
-    moveLimit: clamp(base.moveLimit + Math.floor(wave / 2), 20, 80),
+    vehicleCount: clamp(base.vehicleCount + Math.floor(wave / 3), 7, 40),
+    moveLimit: clamp(base.moveLimit + Math.floor(wave / 2), 20, 100),
     seed: base.seed + wave * 9973,
   };
 }
